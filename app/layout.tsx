@@ -20,9 +20,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "To-Do App - Manage Your Tasks & Projects Efficiently",
+  title: "Task Manager - Manage Your Tasks & Projects Efficiently",
   description:
-    "Create and manage tasks effortlessly with our Jira-inspired to-do app. Stay organized, track progress, and boost productivity with powerful project management features. Try it now!",
+    "Create and manage tasks effortlessly with our Jira-inspired Task Manager app. Stay organized, track progress, and boost productivity with powerful project management features. Try it now!",
 };
 
 export default function RootLayout({
