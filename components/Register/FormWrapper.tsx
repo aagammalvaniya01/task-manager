@@ -6,9 +6,12 @@ import { TextField, Button, Stack } from '@mui/material';
 import { toast } from 'react-toastify';
 import { useRouter } from "next/navigation";
 import { ROUTES } from '@/app/services/routes';
+import { writeLocalStorage } from "../../app/services/local-storage";
+import { useGlobalContext } from "@/app/context/GlobalContext";
 
 const RegisterForm = () => {
     const router = useRouter();
+    const { setIsLoggedIn } = useGlobalContext();
 
     const validationSchema = Yup.object({
         email: Yup.string().email('Invalid email address').required('Email is required'),
@@ -31,6 +34,8 @@ const RegisterForm = () => {
                 const data = await response.json();
                 if (response.status === 201) {
                     toast.success(data.message);
+                    writeLocalStorage("isLoggedIn", "true");
+                    setIsLoggedIn(true);
                     router.push(ROUTES.DASHBOARD);
                 } else {
                     toast.error(data.message);
